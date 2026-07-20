@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground font-body;
+}
+
+h1, h2, h3, h4 {
+  @apply font-heading;
+}
+
+.section-anchor {
+  scroll-margin-top: 96px;
+}
+
+/* Espaçamento vertical padrão das seções de conteúdo. Único ponto de ajuste:
+   mudar aqui reflete em todas as seções que usam .section-y / .section-y-sm. */
+.section-y {
+  @apply py-12 md:py-16;
+}
+
+.section-y-sm {
+  @apply py-8 md:py-10;
+}
+
+/* Borda condicional para cards/quadrados: verde em fundo claro, dourada em
+   fundo escuro. Único ponto de ajuste para a espessura/cor/hover de todos
+   os cards do site — aplicar via className em vez de repetir a regra. */
+.card-border-light {
+  @apply border border-primary/30 transition-all duration-300 hover:border-primary/70;
+}
+.card-border-light:hover {
+  box-shadow:
+    0 0 0 1px rgba(14, 61, 46, 0.15),
+    0 8px 20px -8px rgba(14, 61, 46, 0.35);
+}
+
+.card-border-dark {
+  @apply border border-accent/40 transition-all duration-300 hover:border-accent/80;
+}
+.card-border-dark:hover {
+  box-shadow:
+    0 0 0 1px rgba(214, 166, 75, 0.2),
+    0 8px 20px -8px rgba(214, 166, 75, 0.45);
+}

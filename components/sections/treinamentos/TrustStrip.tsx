@@ -9,10 +9,13 @@ const ITEMS = [
 
 export function TrustStrip() {
   return (
-    <section className="section-y-sm bg-primary">
-      <div className="container grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {ITEMS.map((item) => (
-          <div key={item} className="flex items-start gap-3">
+    <section className="section-y-sm overflow-hidden bg-primary">
+      <div className="flex w-max animate-marquee gap-16 motion-reduce:animate-none [animation-play-state:running] hover:[animation-play-state:paused]">
+        {[...ITEMS, ...ITEMS].map((item, i) => (
+          <div
+            key={i}
+            className="flex shrink-0 items-center gap-3 whitespace-nowrap"
+          >
             <CheckCircle2 className="h-5 w-5 shrink-0 text-accent" />
             <p className="text-sm text-white/80">{item}</p>
           </div>

@@ -62,8 +62,8 @@ export function NrShield({
         style={{
           fontFamily: "var(--font-heading)",
           fontWeight: 600,
-          fontSize: "12px",
-          letterSpacing: "0.22em",
+          fontSize: "15px",
+          letterSpacing: "0.2em",
         }}
       >
         NR
@@ -86,7 +86,7 @@ export function NrShield({
         style={{
           fontFamily: "var(--font-heading)",
           fontWeight: 700,
-          fontSize: "36px",
+          fontSize: "31px",
         }}
       >
         {nr}

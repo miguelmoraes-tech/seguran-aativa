@@ -17,10 +17,8 @@ const SERVICES = [
     tag: "PGR",
     caption: "Programa de Gerenciamento de Riscos (NR-01 / NR-09)",
     description: [
-      "Identifica os perigos presentes no ambiente de trabalho",
-      "Avalia e classifica os riscos ocupacionais",
+      "Identifica e avalia os riscos ocupacionais",
       "Define medidas de prevenção e controle",
-      "Monitora continuamente a eficácia das ações de segurança",
     ],
   },
   {
@@ -29,9 +27,7 @@ const SERVICES = [
     caption: "Programa de Controle Médico de Saúde Ocupacional (NR-07)",
     description: [
       "Monitora a saúde dos trabalhadores",
-      "Define exames ocupacionais obrigatórios",
-      "Previne doenças relacionadas ao trabalho",
-      "Acompanha a aptidão física e mental dos empregados",
+      "Define os exames ocupacionais obrigatórios",
     ],
   },
   {
@@ -39,10 +35,8 @@ const SERVICES = [
     tag: "LTCAT",
     caption: "Laudo Técnico das Condições Ambientais do Trabalho",
     description: [
-      "Avalia a exposição a agentes nocivos no ambiente de trabalho",
-      "Caracteriza atividades especiais para fins previdenciários",
-      "Serve de base para emissão do PPP",
-      "Identifica agentes físicos, químicos e biológicos",
+      "Avalia a exposição a agentes nocivos",
+      "Serve de base para o PPP e aposentadoria especial",
     ],
   },
   {
@@ -50,10 +44,8 @@ const SERVICES = [
     tag: "Gestão eSocial",
     caption: "Eventos SST",
     description: [
-      "Envia os eventos S-2210, S-2220, S-2240 e S-2221 ao eSocial",
-      "Centraliza o controle de saúde e segurança do trabalho",
-      "Mantém a empresa em conformidade total com as exigências legais",
-      "Reduz o risco de autuações e passivos trabalhistas",
+      "Envia os eventos de SST ao eSocial",
+      "Mantém a empresa em conformidade total com a lei",
     ],
   },
   {
@@ -61,10 +53,8 @@ const SERVICES = [
     tag: "Exames Ocupacionais",
     caption: "ASO e complementares",
     description: [
-      "Realiza audiometria, espirometria, ECG, EEG e acuidade visual",
-      "Inclui raio-X e exames laboratoriais complementares",
-      "Emissão imediata do ASO (Atestado de Saúde Ocupacional)",
-      "Atende exames admissionais, periódicos e demissionais",
+      "Audiometria, ECG, raio-X e demais exames",
+      "Emissão imediata do ASO",
     ],
   },
   {
@@ -73,9 +63,7 @@ const SERVICES = [
     caption: "Capacitação profissional",
     description: [
       "Formação inicial e reciclagem periódica",
-      "Abrange as principais normas regulamentadoras (NR-01 a NR-35)",
-      "Capacitação teórica e prática conforme exigência legal",
-      "Emissão de certificados válidos em todo o território nacional",
+      "Certificados válidos em todo o território nacional",
     ],
   },
   {
@@ -84,9 +72,7 @@ const SERVICES = [
     caption: "Análise Ergonômica do Trabalho (NR-17)",
     description: [
       "Avalia as condições ergonômicas das atividades",
-      "Analisa postura, esforço físico e organização do trabalho",
       "Propõe melhorias para reduzir fadiga e lesões",
-      "Adequa o trabalho às capacidades do trabalhador",
     ],
   },
   {
@@ -94,19 +80,8 @@ const SERVICES = [
     tag: "RAC",
     caption: "Requisitos de Atividades Críticas",
     description: [
-      "Estabelece requisitos mínimos para execução de atividades críticas",
-      "Define procedimentos de segurança para reduzir riscos e prevenir acidentes",
-      "Exige planejamento, capacitação e controle operacional",
-      "Contempla os seguintes Requisitos de Atividades Críticas:",
-      "RAC 01 – Trabalhos em Altura",
-      "RAC 02 – Veículos Automotores Leves",
-      "RAC 03 – Operação de Equipamentos Móveis",
-      "RAC 04 – Bloqueio, Identificação e Zero Energia (LOTO)",
-      "RAC 05 – Içamento de Cargas",
-      "RAC 06 – Trabalhos em Espaços Confinados",
-      "RAC 07 – Proteção de Máquinas",
-      "RAC 08 – Atividades no Terreno",
-      "RAC 10 – Trabalhos com Eletricidade",
+      "Requisitos mínimos para atividades críticas",
+      "Cobre 9 frentes: altura, LOTO, içamento, espaços confinados e mais",
     ],
   },
   {
@@ -114,10 +89,8 @@ const SERVICES = [
     tag: "LIP",
     caption: "Laudo de Insalubridade e Periculosidade (NR-15 / NR-16)",
     description: [
-      "Avalia a existência de atividades insalubres e perigosas",
-      "Identifica agentes nocivos e situações de risco",
-      "Determina o direito aos adicionais de insalubridade ou periculosidade",
-      "Recomenda medidas para eliminar ou reduzir a exposição aos riscos",
+      "Avalia atividades insalubres e perigosas",
+      "Determina o direito aos adicionais legais",
     ],
   },
 ];

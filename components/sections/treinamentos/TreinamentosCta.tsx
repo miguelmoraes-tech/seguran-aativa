@@ -4,17 +4,17 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 export function TreinamentosCta() {
   return (
-    <section className="section-y-sm">
+    <section className="section-y-sm bg-primary">
       <div className="container text-center">
-        <h2 className="font-heading text-2xl font-bold sm:text-3xl">
+        <h2 className="font-heading text-2xl font-bold text-white sm:text-3xl">
           Precisa capacitar sua equipe?
         </h2>
-        <p className="mt-2 text-muted-foreground">
+        <p className="mt-2 text-white/70">
           Solicite um orçamento e receba um cronograma personalizado para os
           treinamentos da sua empresa.
         </p>
         <div className="mt-6">
-          <Button variant="primary" size="lg" asChild>
+          <Button variant="accent" size="lg" asChild>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               Solicitar Orçamento
               <ArrowRight className="h-4 w-4" />

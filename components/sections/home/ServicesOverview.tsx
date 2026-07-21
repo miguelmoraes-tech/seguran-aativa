@@ -16,43 +16,100 @@ const SERVICES = [
     icon: FileText,
     tag: "PGR",
     caption: "Programa de Gerenciamento de Riscos",
-    description:
-      "Identificação, avaliação e controle dos riscos ocupacionais conforme NR-01, garantindo conformidade e segurança no ambiente de trabalho.",
+    description: [
+      "Identifica os perigos presentes no ambiente de trabalho",
+      "Avalia e classifica os riscos ocupacionais",
+      "Define medidas de prevenção e controle",
+      "Monitora continuamente a eficácia das ações de segurança",
+    ],
   },
   {
     icon: Activity,
     tag: "PCMSO",
     caption: "Programa de Controle Médico",
-    description:
-      "Monitoramento da saúde dos trabalhadores com exames admissionais, periódicos e demissionais de acordo com a legislação vigente.",
+    description: [
+      "Monitora a saúde dos trabalhadores",
+      "Define exames ocupacionais obrigatórios",
+      "Previne doenças relacionadas ao trabalho",
+      "Acompanha a aptidão física e mental dos empregados",
+    ],
   },
   {
     icon: Shield,
     tag: "LTCAT",
     caption: "Laudo Técnico de Condições Ambientais",
-    description:
-      "Avaliação das condições ambientais de trabalho para fins previdenciários, com medições técnicas e análise de agentes nocivos.",
+    description: [
+      "Avalia a exposição a agentes nocivos no ambiente de trabalho",
+      "Caracteriza atividades especiais para fins previdenciários",
+      "Serve de base para emissão do PPP",
+      "Identifica agentes físicos, químicos e biológicos",
+    ],
   },
   {
     icon: ClipboardList,
     tag: "Gestão eSocial",
     caption: "Eventos SST",
-    description:
-      "Envio completo dos eventos S-2210, S-2220, S-2240 e S-2221 ao eSocial, mantendo sua empresa em conformidade total.",
+    description: [
+      "Envia os eventos S-2210, S-2220, S-2240 e S-2221 ao eSocial",
+      "Centraliza o controle de saúde e segurança do trabalho",
+      "Mantém a empresa em conformidade total com as exigências legais",
+      "Reduz o risco de autuações e passivos trabalhistas",
+    ],
   },
   {
     icon: Stethoscope,
     tag: "Exames Ocupacionais",
     caption: "ASO e complementares",
-    description:
-      "Audiometria, espirometria, ECG, EEG, acuidade visual, raio-X e exames laboratoriais com emissão imediata de ASO.",
+    description: [
+      "Realiza audiometria, espirometria, ECG, EEG e acuidade visual",
+      "Inclui raio-X e exames laboratoriais complementares",
+      "Emissão imediata do ASO (Atestado de Saúde Ocupacional)",
+      "Atende exames admissionais, periódicos e demissionais",
+    ],
   },
   {
     icon: GraduationCap,
     tag: "Treinamentos NR",
     caption: "Capacitação profissional",
-    description:
-      "Formação e reciclagem nas principais normas regulamentadoras: NR-01, NR-05, NR-06, NR-10, NR-11, NR-12, NR-33 e NR-35.",
+    description: [
+      "Formação inicial e reciclagem periódica",
+      "Abrange as principais normas regulamentadoras (NR-01 a NR-35)",
+      "Capacitação teórica e prática conforme exigência legal",
+      "Emissão de certificados válidos em todo o território nacional",
+    ],
+  },
+  {
+    icon: FileText,
+    tag: "AET",
+    caption: "Análise Ergonômica do Trabalho (NR-17)",
+    description: [
+      "Avalia as condições ergonômicas das atividades",
+      "Analisa postura, esforço físico e organização do trabalho",
+      "Propõe melhorias para reduzir fadiga e lesões",
+      "Adequa o trabalho às capacidades do trabalhador",
+    ],
+  },
+  {
+    icon: ClipboardList,
+    tag: "RAC",
+    caption: "Requisitos de Atividades Críticas",
+    description: [
+      "Estabelece requisitos mínimos para execução de atividades críticas",
+      "Define procedimentos de segurança para reduzir riscos e prevenir acidentes",
+      "Exige planejamento, capacitação e controle operacional",
+      "Contempla: Trabalhos em Altura, Veículos Automotores Leves, Operação de Equipamentos Móveis, Bloqueio/Identificação e Zero Energia (LOTO), Içamento de Cargas, Trabalhos em Espaços Confinados, Proteção de Máquinas, Atividades no Terreno, Trabalhos com Eletricidade",
+    ],
+  },
+  {
+    icon: Shield,
+    tag: "LIP",
+    caption: "Laudo de Insalubridade e Periculosidade (NR-15 / NR-16)",
+    description: [
+      "Avalia a existência de atividades insalubres e perigosas",
+      "Identifica agentes nocivos e situações de risco",
+      "Determina o direito aos adicionais de insalubridade ou periculosidade",
+      "Recomenda medidas para eliminar ou reduzir a exposição aos riscos",
+    ],
   },
 ];
 
@@ -78,9 +135,17 @@ export function ServicesOverview() {
                   {service.caption}
                 </span>
               </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                {service.description}
-              </p>
+              <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
+                {service.description.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </Card>
           ))}
         </div>

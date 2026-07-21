@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, CheckCircle2, Shield, Award } from "lucide-react";
+import { ArrowRight, CheckCircle2, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
@@ -103,17 +103,8 @@ export function Hero() {
 
           <motion.div
             variants={leftItemVariants}
-            className="mt-10 grid max-w-md grid-cols-2 gap-4"
+            className="mt-10 flex max-w-md"
           >
-            <div className="card-border-dark flex items-center gap-4 rounded-xl bg-white/5 px-5 py-5">
-              <Shield className="h-6 w-6 shrink-0 text-accent" />
-              <div>
-                <p className="font-heading text-2xl font-bold text-white">
-                  17+
-                </p>
-                <p className="text-xs text-white/60">Anos de Mercado</p>
-              </div>
-            </div>
             <div className="card-border-dark flex items-center gap-4 rounded-xl bg-white/5 px-5 py-5">
               <Award className="h-6 w-6 shrink-0 text-accent" />
               <div>
@@ -130,16 +121,28 @@ export function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-          className="relative overflow-hidden rounded-2xl border-2 border-accent/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.45),0_0_70px_-15px_rgba(214,166,75,0.5)]"
+          className="relative"
         >
           <Image
-            src="/images/hero-banner.png"
-            alt="Segurança Ativa — Engenharia e Medicina do Trabalho"
+            src="/images/imgherosemfundo.png"
+            alt=""
+            aria-hidden="true"
             width={1536}
             height={1097}
-            className="h-auto w-full object-cover"
+            className="h-auto w-full object-cover opacity-20 mix-blend-luminosity"
             priority
           />
+
+          <div
+            className="animate-float absolute bottom-6 left-6 flex h-32 w-32 flex-col items-center justify-center rounded-full border-2 border-accent/70 bg-gradient-to-b from-primary-light to-primary-dark text-center shadow-[0_10px_30px_-8px_rgba(0,0,0,0.5)]"
+          >
+            <p className="font-heading text-3xl font-bold text-accent">
+              17+
+            </p>
+            <p className="mt-0.5 max-w-[80px] text-[10px] uppercase leading-tight tracking-wide text-white/80">
+              Anos de Mercado
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

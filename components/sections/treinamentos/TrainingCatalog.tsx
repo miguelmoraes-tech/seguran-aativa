@@ -9,112 +9,146 @@ import { cn } from "@/lib/utils";
 type Training = {
   code: string;
   title: string;
-  img: string;
-  description: string[] | null;
-  fit?: "cover" | "contain";
-  position?: string;
+  shield: string;
+  description: string[];
 };
 
-// Único ponto de ajuste do tamanho geral dos cards: como a proporção da
-// imagem (aspect-[8/5]) permanece fixa, estreitar esta largura encolhe
-// largura + altura de cada card na mesma proporção, sem alterar o
-// enquadramento (object-fit/object-position) de nenhuma NR.
-// Para reduzir ~10%: max-w-[860px] -> max-w-[774px].
+// Único ponto de ajuste da largura geral do catálogo (grid de 2 colunas).
 const CATALOG_MAX_WIDTH = "max-w-[860px]";
 
 const TRAININGS: Training[] = [
   {
     code: "NR-01",
-    title: "Disposições Gerais",
-    img: "/nr/nr1.webp",
+    title: "Disposições Gerais e Gerenciamento de Riscos Ocupacionais (GRO)",
+    shield: "/images/nr-shields/nr-01.png",
     description: [
-      "Regras básicas de segurança e saúde no trabalho",
-      "Identificação e controle de riscos ocupacionais (PGR)",
-      "Obrigatória para todas as empresas",
+      "Estabelece as diretrizes gerais das Normas Regulamentadoras",
+      "Define as responsabilidades de empregadores e trabalhadores",
+      "Determina a implementação do Programa de Gerenciamento de Riscos (PGR)",
+      "Orienta a identificação, avaliação e controle dos riscos ocupacionais",
     ],
   },
   {
     code: "NR-05",
-    title: "CIPA — Graus de Risco",
-    img: "/nr/nr5.webp",
+    title: "CIPA (Comissão Interna de Prevenção de Acidentes e Assédio)",
+    shield: "/images/nr-shields/nr-05.png",
     description: [
-      "Comissão de prevenção de acidentes e assédio",
-      "Formada por representantes da empresa e dos trabalhadores",
-      "Atua na identificação e prevenção de riscos",
+      "Regulamenta a criação e funcionamento da CIPA",
+      "Promove a prevenção de acidentes e doenças ocupacionais",
+      "Incentiva ações de saúde e segurança no trabalho",
+      "Atua na prevenção e combate ao assédio no ambiente de trabalho",
     ],
   },
   {
     code: "NR-06",
-    title: "Equipamentos de Proteção Individual",
-    img: "/nr/nr6.png",
-    // Banner reeditado (selo mais alto), mas ele ainda encosta perto do rodapé —
-    // desloca o corte um pouco pra baixo pra garantir que o selo não seja cortado.
-    position: "object-[center_75%]",
+    title: "Equipamentos de Proteção Individual (EPI)",
+    shield: "/images/nr-shields/nr-06.png",
     description: [
-      "Uso obrigatório de EPIs conforme o risco da função",
-      "Empresa deve fornecer, treinar e fiscalizar o uso",
-      "Reduz acidentes e doenças ocupacionais",
+      "Define os requisitos para fornecimento de EPIs",
+      "Estabelece a obrigatoriedade do uso correto dos equipamentos",
+      "Determina responsabilidades do empregador e do trabalhador",
+      "Regulamenta manutenção, substituição e conservação dos EPIs",
     ],
   },
   {
     code: "NR-10",
-    title: "Segurança em Instalações Elétricas",
-    img: "/nr/nr10.png",
+    title: "Segurança em Instalações e Serviços em Eletricidade",
+    shield: "/images/nr-shields/nr-10.png",
     description: [
-      "Segurança em instalações e serviços elétricos",
-      "Válida para todas as fases: geração, transmissão e uso",
-      "Reduz risco de choque e acidentes graves",
+      "Estabelece medidas de segurança para trabalhos com eletricidade",
+      "Previne choques elétricos, incêndios e explosões",
+      "Exige capacitação dos trabalhadores",
+      "Determina medidas de proteção coletiva e individual",
     ],
   },
   {
     code: "NR-11",
-    title: "Transporte e Movimentação de Materiais",
-    img: "/nr/nr11.webp",
+    title: "Transporte, Movimentação, Armazenagem e Manuseio de Materiais",
+    shield: "/images/nr-shields/nr-11.png",
     description: [
-      "Uso seguro de empilhadeiras, guindastes e similares",
-      "Regras de armazenagem e manuseio de cargas",
-      "Capacitação obrigatória para operadores",
+      "Regulamenta a movimentação e armazenamento de cargas",
+      "Define requisitos para operação de empilhadeiras e equipamentos",
+      "Estabelece medidas para prevenção de acidentes",
+      "Organiza procedimentos para transporte seguro de materiais",
     ],
   },
   {
     code: "NR-12",
-    title: "Segurança em Máquinas e Equipamentos",
-    img: "/nr/nr12.png",
-    // TODO: banner de origem traz sublinhas com texto incoerente ("Capando de Sarieia",
-    // "Eafereresones") — parecem placeholder, foram omitidas. Confirmar copy real.
+    title: "Segurança no Trabalho em Máquinas e Equipamentos",
+    shield: "/images/nr-shields/nr-12.png",
     description: [
-      "Prevenção de acidentes com máquinas industriais",
-      "Dispositivos de segurança e proteções obrigatórias",
-      "Capacitação para operação segura",
+      "Define requisitos de segurança para máquinas e equipamentos",
+      "Exige proteções físicas e dispositivos de emergência",
+      "Regulamenta instalação, operação e manutenção",
+      "Busca reduzir acidentes envolvendo máquinas",
+    ],
+  },
+  {
+    code: "NR-18",
+    title: "Segurança e Saúde no Trabalho na Indústria da Construção",
+    shield: "/images/nr-shields/nr-18.png",
+    description: [
+      "Estabelece medidas de segurança para obras",
+      "Regulamenta proteção contra quedas e soterramentos",
+      "Define requisitos para canteiros de obras",
+      "Promove a prevenção de acidentes na construção civil",
+    ],
+  },
+  {
+    code: "NR-20",
+    title: "Segurança e Saúde no Trabalho com Inflamáveis e Combustíveis",
+    shield: "/images/nr-shields/nr-20.png",
+    description: [
+      "Regulamenta atividades com inflamáveis e combustíveis",
+      "Define critérios para armazenamento e manuseio",
+      "Exige treinamentos específicos conforme o grau de risco",
+      "Estabelece planos de prevenção e resposta a emergências",
+    ],
+  },
+  {
+    code: "NR-22",
+    title: "Segurança e Saúde Ocupacional na Mineração",
+    shield: "/images/nr-shields/nr-22.png",
+    description: [
+      "Regulamenta a segurança nas atividades de mineração",
+      "Controla riscos de explosões, poeiras e desmoronamentos",
+      "Exige ventilação e monitoramento das minas",
+      "Define procedimentos para emergências",
+    ],
+  },
+  {
+    code: "NR-32",
+    title: "Segurança e Saúde no Trabalho em Serviços de Saúde",
+    shield: "/images/nr-shields/nr-32.png",
+    description: [
+      "Protege trabalhadores dos serviços de saúde",
+      "Controla riscos biológicos, químicos e físicos",
+      "Regulamenta o descarte de resíduos hospitalares",
+      "Estabelece medidas para prevenção de acidentes com perfurocortantes",
     ],
   },
   {
     code: "NR-33",
-    title: "Espaço Confinado",
-    img: "/nr/nr33.png",
-    // Banner reeditado numa proporção mais larga (não é mais quase quadrado) —
-    // cabe inteiro com object-cover padrão, sem precisar de contain.
+    title: "Segurança e Saúde nos Trabalhos em Espaços Confinados",
+    shield: "/images/nr-shields/nr-33.png",
     description: [
-      "Avaliação e controle de riscos em ambientes confinados",
-      "Monitoramento da atmosfera antes da entrada",
-      "Procedimentos de resgate em emergência",
+      "Regulamenta trabalhos em espaços confinados",
+      "Exige Permissão de Entrada e Trabalho (PET)",
+      "Determina monitoramento da atmosfera",
+      "Estabelece capacitação e equipe de resgate",
     ],
   },
   {
     code: "NR-35",
     title: "Trabalho em Altura",
-    img: "/nr/nr35.webp",
-    // Selo "NR 35" e o texto "Trabalho em Altura" ficam colados na borda esquerda —
-    // o corte aqui é horizontal (imagem mais larga que o card), não vertical.
-    position: "object-left",
+    shield: "/images/nr-shields/nr-35.png",
     description: [
-      "Obrigatória para atividades acima de 2 metros",
-      "Uso de EPIs específicos e ancoragem",
-      "Planejamento e procedimentos de emergência",
+      "Aplica-se a atividades realizadas acima de 2 metros",
+      "Exige análise de riscos e planejamento",
+      "Regulamenta sistemas de proteção contra quedas",
+      "Determina treinamento obrigatório para os trabalhadores",
     ],
   },
-  // TODO: asset nr17.webp existe em /public/nr mas não aparece em nenhum
-  // card visível nos prints — confirmar se falta um card "NR-17" no catálogo.
 ];
 
 export function TrainingCatalog() {
@@ -155,38 +189,28 @@ export function TrainingCatalog() {
                   type="button"
                   onClick={() => toggle(t.code)}
                   aria-expanded={isOpen}
-                  className="card-border-light block w-full overflow-hidden rounded-2xl bg-card text-left"
+                  className="card-border-light relative flex w-full items-center gap-4 rounded-2xl bg-card p-4 pr-12 text-left"
                 >
-                  <div className="relative aspect-[8/5] w-full bg-primary-dark">
+                  <div className="relative h-16 w-16 shrink-0">
                     <Image
-                      src={t.img}
-                      alt={`Treinamento ${t.code}`}
+                      src={t.shield}
+                      alt={`Escudo ${t.code}`}
                       fill
-                      className={cn(
-                        t.fit === "contain"
-                          ? "object-contain p-3"
-                          : "object-cover",
-                        t.position ?? "object-top"
-                      )}
-                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-contain"
+                      sizes="64px"
                     />
-                    <span className="absolute left-3 top-3 rounded-md bg-primary-dark/90 px-2 py-1 text-xs font-bold text-accent">
-                      {t.code}
-                    </span>
-                    <span className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-primary">
-                      <ChevronDown
-                        className={cn(
-                          "h-4 w-4 transition-transform duration-300",
-                          isOpen && "rotate-180"
-                        )}
-                      />
-                    </span>
                   </div>
-                  <div className="p-3">
-                    <h3 className="font-heading text-sm font-bold">
-                      {t.title}
-                    </h3>
-                  </div>
+                  <h3 className="font-heading text-sm font-bold leading-snug">
+                    {t.code} — {t.title}
+                  </h3>
+                  <span className="absolute right-3 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 transition-transform duration-300",
+                        isOpen && "rotate-180"
+                      )}
+                    />
+                  </span>
                 </button>
 
                 {/* Painel em overlay: não ocupa espaço no grid, só sobrepõe o que estiver abaixo. */}
@@ -200,24 +224,17 @@ export function TrainingCatalog() {
                 >
                   <div className="overflow-hidden">
                     <div className="card-border-light rounded-2xl bg-card p-4 text-sm text-muted-foreground shadow-xl">
-                      {t.description ? (
-                        <ul className="space-y-2">
-                          {t.description.map((item) => (
-                            <li key={item} className="flex items-start gap-2">
-                              <span
-                                aria-hidden="true"
-                                className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary"
-                              />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <span className="italic text-muted-foreground/70">
-                          TODO: descrição não disponível no material de
-                          origem para este treinamento.
-                        </span>
-                      )}
+                      <ul className="space-y-2">
+                        {t.description.map((item) => (
+                          <li key={item} className="flex items-start gap-2">
+                            <span
+                              aria-hidden="true"
+                              className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary"
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>

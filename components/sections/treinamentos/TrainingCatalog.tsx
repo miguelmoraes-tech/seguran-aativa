@@ -1,15 +1,15 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
+import { NrShield } from "@/components/ui/NrShield";
 import { cn } from "@/lib/utils";
 
 type Training = {
   code: string;
+  nr: string;
   title: string;
-  shield: string;
   description: string[];
 };
 
@@ -19,8 +19,8 @@ const CATALOG_MAX_WIDTH = "max-w-[860px]";
 const TRAININGS: Training[] = [
   {
     code: "NR-01",
+    nr: "01",
     title: "Disposições Gerais e Gerenciamento de Riscos Ocupacionais (GRO)",
-    shield: "/images/nr-shields/nr-01.png",
     description: [
       "Estabelece as diretrizes gerais das Normas Regulamentadoras",
       "Define as responsabilidades de empregadores e trabalhadores",
@@ -30,8 +30,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-05",
+    nr: "05",
     title: "Comissão Interna de Prevenção de Acidentes e Assédio (CIPA)",
-    shield: "/images/nr-shields/nr-05.png",
     description: [
       "Regulamenta a criação e funcionamento da CIPA",
       "Promove a prevenção de acidentes e doenças ocupacionais",
@@ -41,8 +41,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-06",
+    nr: "06",
     title: "Equipamentos de Proteção Individual (EPI)",
-    shield: "/images/nr-shields/nr-06.png",
     description: [
       "Define os requisitos para fornecimento de EPIs",
       "Estabelece a obrigatoriedade do uso correto dos equipamentos",
@@ -52,8 +52,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-10",
+    nr: "10",
     title: "Segurança em Instalações e Serviços em Eletricidade",
-    shield: "/images/nr-shields/nr-10.png",
     description: [
       "Estabelece medidas de segurança para trabalhos com eletricidade",
       "Previne choques elétricos, incêndios e explosões",
@@ -63,8 +63,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-11",
+    nr: "11",
     title: "Transporte, Movimentação, Armazenagem e Manuseio de Materiais",
-    shield: "/images/nr-shields/nr-11.png",
     description: [
       "Regulamenta a movimentação e armazenamento de cargas",
       "Define requisitos para operação de empilhadeiras e equipamentos",
@@ -74,8 +74,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-12",
+    nr: "12",
     title: "Segurança no Trabalho em Máquinas e Equipamentos",
-    shield: "/images/nr-shields/nr-12.png",
     description: [
       "Define requisitos de segurança para máquinas e equipamentos",
       "Exige proteções físicas e dispositivos de emergência",
@@ -85,8 +85,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-18",
+    nr: "18",
     title: "Segurança e Saúde no Trabalho na Indústria da Construção",
-    shield: "/images/nr-shields/nr-18.png",
     description: [
       "Estabelece medidas de segurança para obras",
       "Regulamenta proteção contra quedas e soterramentos",
@@ -96,8 +96,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-20",
+    nr: "20",
     title: "Segurança e Saúde no Trabalho com Inflamáveis e Combustíveis",
-    shield: "/images/nr-shields/nr-20.png",
     description: [
       "Regulamenta atividades com inflamáveis e combustíveis",
       "Define critérios para armazenamento e manuseio",
@@ -107,8 +107,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-22",
+    nr: "22",
     title: "Segurança e Saúde Ocupacional na Mineração",
-    shield: "/images/nr-shields/nr-22.png",
     description: [
       "Regulamenta a segurança nas atividades de mineração",
       "Controla riscos de explosões, poeiras e desmoronamentos",
@@ -118,8 +118,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-32",
+    nr: "32",
     title: "Segurança e Saúde no Trabalho em Serviços de Saúde",
-    shield: "/images/nr-shields/nr-32.png",
     description: [
       "Protege trabalhadores dos serviços de saúde",
       "Controla riscos biológicos, químicos e físicos",
@@ -129,8 +129,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-33",
+    nr: "33",
     title: "Segurança e Saúde nos Trabalhos em Espaços Confinados",
-    shield: "/images/nr-shields/nr-33.png",
     description: [
       "Regulamenta trabalhos em espaços confinados",
       "Exige Permissão de Entrada e Trabalho (PET)",
@@ -140,8 +140,8 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-35",
+    nr: "35",
     title: "Trabalho em Altura",
-    shield: "/images/nr-shields/nr-35.png",
     description: [
       "Aplica-se a atividades realizadas acima de 2 metros",
       "Exige análise de riscos e planejamento",
@@ -189,16 +189,10 @@ export function TrainingCatalog() {
                   type="button"
                   onClick={() => toggle(t.code)}
                   aria-expanded={isOpen}
-                  className="card-border-light relative flex w-full items-center gap-4 rounded-2xl bg-card p-4 pr-12 text-left"
+                  className="card-border-light group relative flex w-full items-center gap-4 rounded-2xl bg-card p-4 pr-12 text-left"
                 >
-                  <div className="relative h-16 w-16 shrink-0">
-                    <Image
-                      src={t.shield}
-                      alt={`Escudo ${t.code}`}
-                      fill
-                      className="object-contain"
-                      sizes="64px"
-                    />
+                  <div className="h-16 w-16 shrink-0">
+                    <NrShield nr={t.nr} />
                   </div>
                   <h3 className="font-heading text-sm font-bold leading-snug">
                     {t.code} — {t.title}

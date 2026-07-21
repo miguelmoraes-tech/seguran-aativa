@@ -4,7 +4,7 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 export function BottomCta() {
   return (
-    <section className="bg-primary-dark">
+    <section className="bg-primary">
       <div className="section-y-sm container flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
         <div>
           <h3 className="font-heading text-xl font-bold text-white sm:text-2xl">

@@ -21,7 +21,7 @@ export default function TreinamentosPage() {
       <CapacitacaoProcess />
       <TrustStrip />
       <TreinamentosCta />
-      <BottomCta variant="light" />
+      <BottomCta variant="footer" />
     </>
   );
 }

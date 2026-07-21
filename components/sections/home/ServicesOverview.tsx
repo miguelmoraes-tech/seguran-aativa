@@ -15,7 +15,7 @@ const SERVICES = [
   {
     icon: FileText,
     tag: "PGR",
-    caption: "Programa de Gerenciamento de Riscos",
+    caption: "Programa de Gerenciamento de Riscos (NR-01 / NR-09)",
     description: [
       "Identifica os perigos presentes no ambiente de trabalho",
       "Avalia e classifica os riscos ocupacionais",
@@ -26,7 +26,7 @@ const SERVICES = [
   {
     icon: Activity,
     tag: "PCMSO",
-    caption: "Programa de Controle Médico",
+    caption: "Programa de Controle Médico de Saúde Ocupacional (NR-07)",
     description: [
       "Monitora a saúde dos trabalhadores",
       "Define exames ocupacionais obrigatórios",
@@ -37,7 +37,7 @@ const SERVICES = [
   {
     icon: Shield,
     tag: "LTCAT",
-    caption: "Laudo Técnico de Condições Ambientais",
+    caption: "Laudo Técnico das Condições Ambientais do Trabalho",
     description: [
       "Avalia a exposição a agentes nocivos no ambiente de trabalho",
       "Caracteriza atividades especiais para fins previdenciários",
@@ -97,7 +97,16 @@ const SERVICES = [
       "Estabelece requisitos mínimos para execução de atividades críticas",
       "Define procedimentos de segurança para reduzir riscos e prevenir acidentes",
       "Exige planejamento, capacitação e controle operacional",
-      "Contempla: Trabalhos em Altura, Veículos Automotores Leves, Operação de Equipamentos Móveis, Bloqueio/Identificação e Zero Energia (LOTO), Içamento de Cargas, Trabalhos em Espaços Confinados, Proteção de Máquinas, Atividades no Terreno, Trabalhos com Eletricidade",
+      "Contempla os seguintes Requisitos de Atividades Críticas:",
+      "RAC 01 – Trabalhos em Altura",
+      "RAC 02 – Veículos Automotores Leves",
+      "RAC 03 – Operação de Equipamentos Móveis",
+      "RAC 04 – Bloqueio, Identificação e Zero Energia (LOTO)",
+      "RAC 05 – Içamento de Cargas",
+      "RAC 06 – Trabalhos em Espaços Confinados",
+      "RAC 07 – Proteção de Máquinas",
+      "RAC 08 – Atividades no Terreno",
+      "RAC 10 – Trabalhos com Eletricidade",
     ],
   },
   {

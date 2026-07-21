@@ -30,7 +30,7 @@ const TRAININGS: Training[] = [
   },
   {
     code: "NR-05",
-    title: "CIPA (Comissão Interna de Prevenção de Acidentes e Assédio)",
+    title: "Comissão Interna de Prevenção de Acidentes e Assédio (CIPA)",
     shield: "/images/nr-shields/nr-05.png",
     description: [
       "Regulamenta a criação e funcionamento da CIPA",

@@ -13,51 +13,81 @@ const DOCS = [
     tag: "PGR",
     ref: "NR-01 / NR-09",
     title: "Programa de Gerenciamento de Riscos",
-    description:
-      "Identificação, avaliação e controle dos riscos ocupacionais conforme NR-01, garantindo conformidade e segurança no ambiente de trabalho.",
+    description: [
+      "Identifica os perigos presentes no ambiente de trabalho",
+      "Avalia e classifica os riscos ocupacionais",
+      "Define medidas de prevenção e controle",
+      "Monitora continuamente a eficácia das ações de segurança",
+    ],
   },
   {
     icon: Activity,
     tag: "PCMSO",
     ref: "NR-07",
     title: "Programa de Controle Médico de Saúde Ocupacional",
-    description:
-      "Monitoramento da saúde dos trabalhadores por meio de exames admissionais, periódicos e demissionais de acordo com a legislação vigente.",
+    description: [
+      "Monitora a saúde dos trabalhadores",
+      "Define exames ocupacionais obrigatórios",
+      "Previne doenças relacionadas ao trabalho",
+      "Acompanha a aptidão física e mental dos empregados",
+    ],
   },
   {
     icon: Shield,
     tag: "LTCAT",
-    ref: "Lei 8.213/91",
-    title: "Laudo Técnico de Condições Ambientais do Trabalho",
-    description:
-      "Avaliação das condições ambientais de trabalho para fins previdenciários, com medições técnicas e análise de agentes nocivos.",
+    ref: "",
+    title: "Laudo Técnico das Condições Ambientais do Trabalho",
+    description: [
+      "Avalia a exposição a agentes nocivos no ambiente de trabalho",
+      "Caracteriza atividades especiais para fins previdenciários",
+      "Serve de base para emissão do PPP",
+      "Identifica agentes físicos, químicos e biológicos",
+    ],
   },
   {
     icon: ClipboardCheck,
     tag: "AET",
     ref: "NR-17",
     title: "Análise Ergonômica do Trabalho",
-    // TODO: descrição não estava visível no print (item fechado no acordeão) — preencher com o texto real.
-    description:
-      "TODO: descrição não visível no print (item fechado no acordeão).",
+    description: [
+      "Avalia as condições ergonômicas das atividades",
+      "Analisa postura, esforço físico e organização do trabalho",
+      "Propõe melhorias para reduzir fadiga e lesões",
+      "Adequa o trabalho às capacidades do trabalhador",
+    ],
   },
   {
     icon: FileText,
     tag: "RAC",
-    ref: "NR-05",
-    title: "Relatório Anual do CIPA",
-    // TODO: descrição não estava visível no print (item fechado no acordeão).
-    description:
-      "TODO: descrição não visível no print (item fechado no acordeão).",
+    ref: "",
+    title: "Requisitos de Atividades Críticas",
+    description: [
+      "Estabelece requisitos mínimos para execução de atividades críticas",
+      "Define procedimentos de segurança para reduzir riscos e prevenir acidentes",
+      "Exige planejamento, capacitação e controle operacional",
+      "Contempla os seguintes Requisitos de Atividades Críticas:",
+      "RAC 01 – Trabalhos em Altura",
+      "RAC 02 – Veículos Automotores Leves",
+      "RAC 03 – Operação de Equipamentos Móveis",
+      "RAC 04 – Bloqueio, Identificação e Zero Energia (LOTO)",
+      "RAC 05 – Içamento de Cargas",
+      "RAC 06 – Trabalhos em Espaços Confinados",
+      "RAC 07 – Proteção de Máquinas",
+      "RAC 08 – Atividades no Terreno",
+      "RAC 10 – Trabalhos com Eletricidade",
+    ],
   },
   {
     icon: Shield,
     tag: "LIP",
     ref: "NR-15 / NR-16",
     title: "Laudo de Insalubridade e Periculosidade",
-    // TODO: descrição não estava visível no print (item fechado no acordeão).
-    description:
-      "TODO: descrição não visível no print (item fechado no acordeão).",
+    description: [
+      "Avalia a existência de atividades insalubres e perigosas",
+      "Identifica agentes nocivos e situações de risco",
+      "Determina o direito aos adicionais de insalubridade ou periculosidade",
+      "Recomenda medidas para eliminar ou reduzir a exposição aos riscos",
+    ],
   },
 ];
 
@@ -83,9 +113,11 @@ export function DocumentacaoTecnica() {
                     <span>
                       <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
                         {doc.tag}
-                        <span className="font-normal normal-case text-muted-foreground">
-                          {doc.ref}
-                        </span>
+                        {doc.ref && (
+                          <span className="font-normal normal-case text-muted-foreground">
+                            {doc.ref}
+                          </span>
+                        )}
                       </span>
                       <span className="block font-semibold text-foreground">
                         {doc.title}
@@ -94,7 +126,17 @@ export function DocumentacaoTecnica() {
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="pl-12">
-                  {doc.description}
+                  <ul className="space-y-2">
+                    {doc.description.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span
+                          aria-hidden="true"
+                          className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </AccordionContent>
               </AccordionItem>
             ))}

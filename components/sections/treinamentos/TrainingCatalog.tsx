@@ -172,7 +172,7 @@ export function TrainingCatalog() {
         <SectionHeader
           eyebrow="Normas Regulamentadoras"
           title="Catálogo de treinamentos"
-          description="Conheça todos os treinamentos disponíveis. Cada NR possui conteúdo programático específico e carga horária regulamentar."
+          description="Conheça alguns dos nossos treinamentos disponíveis. Cada NR possui conteúdo programático específico e carga horária regulamentar."
         />
 
         <div

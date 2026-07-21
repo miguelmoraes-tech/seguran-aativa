@@ -129,17 +129,17 @@ export function Hero() {
             aria-hidden="true"
             width={1536}
             height={1097}
-            className="h-auto w-full object-cover opacity-20 mix-blend-luminosity"
+            className="h-auto w-full object-cover opacity-50 mix-blend-luminosity"
             priority
           />
 
           <div
-            className="animate-float absolute bottom-6 left-6 flex h-32 w-32 flex-col items-center justify-center rounded-full border-2 border-accent/70 bg-gradient-to-b from-primary-light to-primary-dark text-center shadow-[0_10px_30px_-8px_rgba(0,0,0,0.5)]"
+            className="animate-float absolute bottom-6 left-6 flex items-center gap-3 rounded-2xl border-2 border-accent/70 bg-gradient-to-b from-primary-light to-primary-dark px-5 py-3 shadow-[0_10px_30px_-8px_rgba(0,0,0,0.5)]"
           >
-            <p className="font-heading text-3xl font-bold text-accent">
+            <p className="font-heading text-3xl font-bold leading-none text-accent">
               17+
             </p>
-            <p className="mt-0.5 max-w-[80px] text-[10px] uppercase leading-tight tracking-wide text-white/80">
+            <p className="max-w-[80px] text-[10px] uppercase leading-tight tracking-wide text-white/80">
               Anos de Mercado
             </p>
           </div>

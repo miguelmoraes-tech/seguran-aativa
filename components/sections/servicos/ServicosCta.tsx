@@ -13,7 +13,12 @@ export function ServicosCta() {
           Montamos um pacote personalizado para a sua empresa.
         </p>
         <div className="mt-6">
-          <Button variant="accent" size="lg" asChild>
+          <Button
+            variant="accent"
+            size="lg"
+            className="animate-float"
+            asChild
+          >
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               Solicitar Orçamento
               <ArrowRight className="h-4 w-4" />

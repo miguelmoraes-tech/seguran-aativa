@@ -125,15 +125,23 @@ export function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-          className="relative"
+          className="relative overflow-hidden rounded-2xl border-2 border-accent/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.45),0_0_70px_-15px_rgba(214,166,75,0.5)] md:overflow-visible md:rounded-none md:border-0 md:shadow-none"
         >
+          <Image
+            src="/images/hero-banner.png"
+            alt="Segurança Ativa — Engenharia e Medicina do Trabalho"
+            width={1536}
+            height={1097}
+            className="h-auto w-full object-cover md:hidden"
+            priority
+          />
           <Image
             src="/images/imgherosemfundo.png"
             alt=""
             aria-hidden="true"
             width={1530}
             height={1091}
-            className="h-auto w-full object-cover opacity-50"
+            className="hidden h-auto w-full object-cover opacity-50 md:block"
             priority
           />
 

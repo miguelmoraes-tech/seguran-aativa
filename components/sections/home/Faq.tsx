@@ -26,8 +26,13 @@ const FAQS = [
   {
     question:
       "Com que frequência os exames médicos ocupacionais devem ser realizados?",
-    answer:
-      "Os exames periódicos devem ser realizados conforme o risco da função: anual para trabalhadores expostos a riscos que impliquem desencadeamento ou agravamento de doença ocupacional, ou trabalhadores com mais de 45 anos de idade; bienal para trabalhadores expostos a riscos moderados; ou a cada 5 anos para trabalhadores expostos a riscos baixos. O PCMSO define a periodicidade exata para cada função.",
+    answer: (
+      <>
+        Os exames periódicos devem ser realizados conforme o risco da função
+        e as definições do PCMSO, podendo ter periodicidade{" "}
+        <strong>semestral, anual ou bienal</strong>.
+      </>
+    ),
   },
   {
     question: "Quando o LTCAT é necessário?",

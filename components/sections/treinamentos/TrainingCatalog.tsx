@@ -152,18 +152,10 @@ const TRAININGS: Training[] = [
 ];
 
 export function TrainingCatalog() {
-  const [openCodes, setOpenCodes] = React.useState<Set<string>>(new Set());
+  const [openCode, setOpenCode] = React.useState<string | null>(null);
 
   function toggle(code: string) {
-    setOpenCodes((prev) => {
-      const next = new Set(prev);
-      if (next.has(code)) {
-        next.delete(code);
-      } else {
-        next.add(code);
-      }
-      return next;
-    });
+    setOpenCode((prev) => (prev === code ? null : code));
   }
 
   return (
@@ -182,7 +174,7 @@ export function TrainingCatalog() {
           )}
         >
           {TRAININGS.map((t) => {
-            const isOpen = openCodes.has(t.code);
+            const isOpen = openCode === t.code;
             return (
               <div key={t.code} className="relative">
                 <button

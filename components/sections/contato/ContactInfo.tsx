@@ -11,7 +11,7 @@ const CARDS = [
   {
     icon: Mail,
     label: "E-mail",
-    value: "contato@ativamedicinaocupacional.com.br",
+    value: "comercial@ativamedicinaocupacional.com.br",
     // Sem quebra de linha: card ocupa a largura inteira pra caber numa linha só.
     nowrap: true,
   },

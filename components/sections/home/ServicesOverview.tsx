@@ -44,8 +44,8 @@ const SERVICES = [
     tag: "Gestão eSocial",
     caption: "Eventos SST",
     description: [
-      "Envia os eventos de SST ao eSocial",
-      "Mantém a empresa em conformidade total com a lei",
+      "Envio dos eventos de SST ao eSocial",
+      "Mantém a empresa em conformidade com a legislação vigente",
     ],
   },
   {
@@ -53,8 +53,8 @@ const SERVICES = [
     tag: "Exames Ocupacionais",
     caption: "ASO e complementares",
     description: [
-      "Audiometria, ECG, raio-X e demais exames",
-      "Emissão imediata do ASO",
+      "Emissão do ASO (Atestado de Saúde Ocupacional)",
+      "Realização de exames complementares, como Audiometria, ECG, Raio-X e demais exames ocupacionais",
     ],
   },
   {
@@ -71,8 +71,9 @@ const SERVICES = [
     tag: "AET",
     caption: "Análise Ergonômica do Trabalho (NR-17)",
     description: [
-      "Avalia as condições ergonômicas das atividades",
-      "Propõe melhorias para reduzir fadiga e lesões",
+      "Avalia as condições ergonômicas das atividades desempenhadas",
+      "Avalia os fatores de riscos psicossociais",
+      "Propõe melhorias para reduzir a fadiga mental e física, prevenir lesões e promover melhores condições de trabalho",
     ],
   },
   {

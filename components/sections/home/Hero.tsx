@@ -146,12 +146,12 @@ export function Hero() {
           />
 
           <div
-            className="animate-float absolute bottom-6 left-6 flex flex-col items-center justify-center gap-0.5 rounded-2xl border-2 border-accent/70 bg-gradient-to-b from-primary-light to-primary-dark px-6 py-4 text-center shadow-[0_10px_30px_-8px_rgba(0,0,0,0.5)]"
+            className="animate-float absolute bottom-3 left-3 flex flex-col items-center justify-center gap-0.5 rounded-xl border-2 border-accent/70 bg-gradient-to-b from-primary-light to-primary-dark px-3 py-2 text-center shadow-[0_10px_30px_-8px_rgba(0,0,0,0.5)] md:bottom-6 md:left-6 md:rounded-2xl md:px-6 md:py-4"
           >
-            <p className="font-heading text-3xl font-bold leading-none text-accent">
+            <p className="font-heading text-lg font-bold leading-none text-accent md:text-3xl">
               17+
             </p>
-            <p className="max-w-[90px] text-xs uppercase leading-tight tracking-wide text-white/80">
+            <p className="max-w-[70px] text-[10px] uppercase leading-tight tracking-wide text-white/80 md:max-w-[90px] md:text-xs">
               Anos de Mercado
             </p>
           </div>

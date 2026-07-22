@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const NAV = [
-  { label: "Início", href: "/" },
-  { label: "Serviços", href: "/servicos#servicos" },
-  { label: "Exames", href: "/servicos#exames" },
-  { label: "Treinamentos", href: "/treinamentos" },
-  { label: "Contato", href: "/contato" },
+  { label: "Início", href: "/", essential: true },
+  { label: "Serviços", href: "/servicos#servicos", essential: true },
+  { label: "Exames", href: "/servicos#exames", essential: false },
+  { label: "Treinamentos", href: "/treinamentos", essential: false },
+  { label: "Contato", href: "/contato", essential: true },
 ];
 
 const SERVICOS = [
@@ -53,7 +54,10 @@ export function Footer() {
           </h4>
           <ul className="mt-4 space-y-3">
             {NAV.map((item) => (
-              <li key={item.label}>
+              <li
+                key={item.label}
+                className={item.essential ? undefined : "hidden md:list-item"}
+              >
                 <Link href={item.href} className="text-sm text-white/70 hover:text-white">
                   {item.label}
                 </Link>
@@ -62,7 +66,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="hidden md:block">
           <h4 className="font-heading text-sm font-bold uppercase tracking-wider text-accent">
             Serviços
           </h4>
@@ -82,7 +86,9 @@ export function Footer() {
             Contato
           </h4>
           <ul className="mt-4 space-y-3 text-sm text-white/70">
-            <li>Belo Horizonte, Contagem, Betim e Região Metropolitana</li>
+            <li className="hidden md:block">
+              Belo Horizonte, Contagem, Betim e Região Metropolitana
+            </li>
             <li>
               <a href="tel:+553137872337" className="hover:text-white">
                 (31) 3787-2337
@@ -96,17 +102,40 @@ export function Footer() {
                 comercial@ativamedicinaocupacional.com.br
               </a>
             </li>
-            <li>Seg a Sex: 8h às 18h</li>
+            <li>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                WhatsApp
+              </a>
+            </li>
+            <li className="hidden md:block">Seg a Sex: 8h às 18h</li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="container flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/50 sm:flex-row">
-          <p>
-            © 2026 Segurança Ativa Engenharia e Medicina Ocupacional. Todos os
-            direitos reservados.
-          </p>
+          <div>
+            <p>
+              © 2026 Segurança Ativa Engenharia e Medicina Ocupacional. Todos
+              os direitos reservados.
+            </p>
+            <p className="mt-1 text-white/40">
+              Site construído por{" "}
+              <a
+                href="https://somosmoralab.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/40 hover:text-accent"
+              >
+                Mora Lab
+              </a>
+            </p>
+          </div>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white/80">
               Política de Privacidade

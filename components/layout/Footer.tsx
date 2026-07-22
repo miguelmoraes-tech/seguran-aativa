@@ -35,9 +35,15 @@ export function Footer() {
             Há mais de 17 anos protegendo vidas e empresas com excelência em
             Engenharia de Segurança do Trabalho e Medicina Ocupacional.
           </p>
-          <div className="mt-4 flex items-center gap-2 text-sm font-medium text-accent">
-            <ShieldCheck className="h-4 w-4" />
-            CREA-MG Ativo
+          <div className="mt-4 flex flex-col gap-1.5">
+            <div className="flex items-center gap-2 text-sm font-medium text-accent">
+              <ShieldCheck className="h-4 w-4" />
+              CREA-MG Ativo
+            </div>
+            <div className="flex items-center gap-2 text-sm font-medium text-accent">
+              <ShieldCheck className="h-4 w-4" />
+              CRM-MG Ativo
+            </div>
           </div>
         </div>
 
@@ -84,10 +90,10 @@ export function Footer() {
             </li>
             <li>
               <a
-                href="mailto:contato@ativamedicinaocupacional.com.br"
+                href="mailto:comercial@ativamedicinaocupacional.com.br"
                 className="hover:text-white"
               >
-                contato@ativamedicinaocupacional.com.br
+                comercial@ativamedicinaocupacional.com.br
               </a>
             </li>
             <li>Seg a Sex: 8h às 18h</li>

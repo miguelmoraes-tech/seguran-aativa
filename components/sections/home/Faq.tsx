@@ -40,15 +40,15 @@ const FAQS = [
       "Sim, a maioria dos treinamentos das Normas Regulamentadoras possui validade e exige reciclagem. Por exemplo: NR-10 (reciclagem bienal), NR-12 (reciclagem anual para operadores de máquinas), NR-33 (reciclagem bienal), NR-35 (reciclagem bienal ou conforme avaliação de risco). A NR-01 prevê reciclagem anual ou bienal conforme o risco da atividade.",
   },
   {
-    question: "Quanto tempo leva para implementar todos os programas SST?",
-    // TODO: você mandou a resposta desta pergunta duplicada com a de "Os treinamentos NR
-    // têm validade?" — preciso do texto real dessa resposta pra preencher aqui.
-    answer: null,
-  },
-  {
     question: "O que acontece se minha empresa não estiver em conformidade?",
     answer:
       "A falta de conformidade com as normas de SST pode resultar em autuações e multas do Ministério do Trabalho, processos trabalhistas por danos morais e materiais, aumento do fator acidentário (FAP) que eleva o custo da contribuição previdenciária, e impossibilidade de participar de licitações públicas. O investimento em prevenção é sempre menor que o custo de uma não conformidade.",
+  },
+  {
+    question:
+      "Minha empresa precisa implementar o Fatores de Riscos Psicossociais conforme Nova NR-01?",
+    answer:
+      "Sim, o levantamento dos riscos psicossociais é obrigatório para todas as empresas que possuem funcionários e é fundamental para prevenir o adoecimento mental no ambiente de trabalho. O monitoramento contínuo deve ocorrer, no mínimo, a cada 2 anos, e exige levantamento imediato na ocorrência de mudanças nos processos, queixas de assédio, aumento de absenteísmo/turnover, ou impactos na saúde da equipe.",
   },
 ];
 

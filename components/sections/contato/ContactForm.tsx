@@ -26,6 +26,7 @@ export function ContactForm() {
       segmento: String(data.get("segmento") ?? ""),
       servico: String(data.get("servico") ?? ""),
       mensagem: String(data.get("mensagem") ?? ""),
+      website: String(data.get("website") ?? ""),
     };
 
     setStatus("loading");
@@ -63,6 +64,20 @@ export function ContactForm() {
       </p>
 
       <form ref={formRef} onSubmit={handleSubmit} className="mt-5 space-y-4">
+        <div
+          style={{ position: "absolute", left: "-9999px", top: "-9999px" }}
+          aria-hidden="true"
+        >
+          <label htmlFor="website">Não preencha este campo</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
         <div>
           <label className="text-sm font-medium">
             Nome completo <span className="text-accent">*</span>
@@ -71,6 +86,7 @@ export function ContactForm() {
             type="text"
             name="nome"
             required
+            maxLength={150}
             placeholder="Seu nome"
             className="mt-1.5 w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary"
           />
@@ -85,6 +101,7 @@ export function ContactForm() {
               type="email"
               name="email"
               required
+              maxLength={150}
               placeholder="seu@email.com"
               className="mt-1.5 w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary"
             />
@@ -97,6 +114,7 @@ export function ContactForm() {
               type="tel"
               name="telefone"
               required
+              maxLength={30}
               placeholder="(31) 99999-9999"
               className="mt-1.5 w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary"
             />
@@ -112,6 +130,7 @@ export function ContactForm() {
               type="text"
               name="empresa"
               required
+              maxLength={150}
               placeholder="Nome da empresa"
               className="mt-1.5 w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary"
             />
@@ -121,6 +140,7 @@ export function ContactForm() {
             <input
               type="text"
               name="segmento"
+              maxLength={150}
               placeholder="Ex: Construção Civil"
               className="mt-1.5 w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary"
             />
@@ -156,6 +176,7 @@ export function ContactForm() {
           <textarea
             name="mensagem"
             required
+            maxLength={5000}
             rows={3}
             placeholder="Descreva brevemente sua necessidade..."
             className="mt-1.5 w-full resize-none rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary"

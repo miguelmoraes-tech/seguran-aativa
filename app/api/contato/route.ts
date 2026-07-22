@@ -1,7 +1,22 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const CONTACT_EMAIL_TO = "contato@ativamedicinaocupacional.com.br";
+const CONTACT_EMAIL_TO = "comercial@ativamedicinaocupacional.com.br";
+
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const RATE_LIMIT_MAP_MAX_SIZE = 1000;
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+
+const FIELD_MAX_LENGTHS = {
+  nome: 150,
+  email: 150,
+  telefone: 30,
+  empresa: 150,
+  segmento: 150,
+  servico: 100,
+  mensagem: 5000,
+} as const;
 
 type ContactPayload = {
   nome: string;
@@ -11,6 +26,8 @@ type ContactPayload = {
   segmento?: string;
   servico: string;
   mensagem: string;
+  // Honeypot: campo invisível para humanos. Se vier preenchido, é bot.
+  website?: string;
 };
 
 function isValidEmail(value: string) {
@@ -26,7 +43,42 @@ function escapeHtml(value: string) {
     .replace(/'/g, "&#39;");
 }
 
+function getClientIp(request: Request) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  if (forwardedFor) {
+    return forwardedFor.split(",")[0].trim();
+  }
+  return request.headers.get("x-real-ip") ?? "unknown";
+}
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+
+  if (rateLimitMap.size > RATE_LIMIT_MAP_MAX_SIZE) {
+    for (const [key, entry] of rateLimitMap) {
+      if (now > entry.resetAt) rateLimitMap.delete(key);
+    }
+  }
+
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+
+  entry.count += 1;
+  return entry.count > RATE_LIMIT_MAX_REQUESTS;
+}
+
 export async function POST(request: Request) {
+  const ip = getClientIp(request);
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Muitas tentativas. Aguarde alguns minutos e tente novamente." },
+      { status: 429 }
+    );
+  }
+
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = process.env.SMTP_PORT;
   const smtpUser = process.env.SMTP_USER;
@@ -47,9 +99,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Corpo da requisição inválido." }, { status: 400 });
   }
 
-  const { nome, email, telefone, empresa, segmento, servico, mensagem } = payload;
+  // Honeypot: humanos nunca preenchem este campo. Bots que preenchem tudo, sim.
+  // Responde sucesso falso pra não revelar a armadilha, sem enviar e-mail de verdade.
+  if (payload.website?.trim()) {
+    return NextResponse.json({ ok: true });
+  }
 
-  if (!nome?.trim() || !email?.trim() || !telefone?.trim() || !empresa?.trim() || !servico?.trim() || !mensagem?.trim()) {
+  const nome = payload.nome?.trim();
+  const email = payload.email?.trim();
+  const telefone = payload.telefone?.trim();
+  const empresa = payload.empresa?.trim();
+  const segmento = payload.segmento?.trim();
+  const servico = payload.servico?.trim();
+  const mensagem = payload.mensagem?.trim();
+
+  if (!nome || !email || !telefone || !empresa || !servico || !mensagem) {
     return NextResponse.json(
       { error: "Preencha todos os campos obrigatórios." },
       { status: 400 }
@@ -58,6 +122,22 @@ export async function POST(request: Request) {
 
   if (!isValidEmail(email)) {
     return NextResponse.json({ error: "Informe um e-mail válido." }, { status: 400 });
+  }
+
+  const tooLong =
+    nome.length > FIELD_MAX_LENGTHS.nome ||
+    email.length > FIELD_MAX_LENGTHS.email ||
+    telefone.length > FIELD_MAX_LENGTHS.telefone ||
+    empresa.length > FIELD_MAX_LENGTHS.empresa ||
+    (segmento?.length ?? 0) > FIELD_MAX_LENGTHS.segmento ||
+    servico.length > FIELD_MAX_LENGTHS.servico ||
+    mensagem.length > FIELD_MAX_LENGTHS.mensagem;
+
+  if (tooLong) {
+    return NextResponse.json(
+      { error: "Um ou mais campos excedem o tamanho máximo permitido." },
+      { status: 400 }
+    );
   }
 
   const transporter = nodemailer.createTransport({

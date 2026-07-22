@@ -99,6 +99,10 @@ export function Hero() {
               <CheckCircle2 className="h-4 w-4 text-accent" />
               CREA-MG Ativo
             </span>
+            <span className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-accent" />
+              CRM-MG Ativo
+            </span>
           </motion.div>
 
           <motion.div
@@ -127,8 +131,8 @@ export function Hero() {
             src="/images/imgherosemfundo.png"
             alt=""
             aria-hidden="true"
-            width={1536}
-            height={1097}
+            width={1530}
+            height={1091}
             className="h-auto w-full object-cover opacity-50"
             priority
           />

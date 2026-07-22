@@ -26,9 +26,9 @@ const leftItemVariants: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative flex items-center overflow-hidden bg-primary lg:min-h-[clamp(28rem,56vh,36rem)] 2xl:min-h-[clamp(34rem,72vh,46rem)]">
+    <section className="relative flex items-center overflow-hidden bg-primary lg:min-h-[clamp(28rem,56vh,36rem)] 2xl:min-h-[clamp(28rem,58vh,38rem)]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,theme(colors.primary.light)_0%,transparent_60%)] opacity-40" />
-      <div className="container relative grid gap-8 py-10 sm:py-12 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:py-12 2xl:py-16">
+      <div className="container relative grid gap-8 py-10 sm:py-12 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:py-12 2xl:py-12">
         <motion.div
           initial="hidden"
           animate="visible"

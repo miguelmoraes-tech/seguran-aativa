@@ -10,17 +10,17 @@ const leftContainerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.09,
+      staggerChildren: 0.1,
     },
   },
 };
 
 const leftItemVariants: Variants = {
-  hidden: { opacity: 0, x: -24 },
+  hidden: { opacity: 0, x: -16 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+    transition: { type: "spring", stiffness: 90, damping: 20, mass: 0.7 },
   },
 };
 
@@ -122,9 +122,9 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 24 }}
+          initial={{ opacity: 0, x: 16 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          transition={{ type: "spring", stiffness: 90, damping: 20, mass: 0.7, delay: 0.15 }}
           className="relative mx-auto overflow-hidden rounded-2xl border-2 border-accent/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.45),0_0_70px_-15px_rgba(214,166,75,0.5)] md:max-w-[380px] md:overflow-visible md:rounded-none md:border-0 md:shadow-none lg:max-w-[420px] xl:max-w-[460px] 2xl:max-w-[680px]"
         >
           <Image

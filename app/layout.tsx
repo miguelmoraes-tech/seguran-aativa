@@ -4,6 +4,8 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { StructuredData } from "@/components/layout/StructuredData";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const heading = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -17,10 +19,31 @@ const body = Inter({
   weight: ["400", "500", "600"],
 });
 
+const HOME_TITLE =
+  "Segurança Ativa | Engenharia e Medicina Ocupacional em Belo Horizonte";
+const HOME_DESCRIPTION =
+  "Segurança do Trabalho e Medicina Ocupacional em Belo Horizonte: PGR, PCMSO, LTCAT, exames ocupacionais, treinamentos NR e eSocial SST. Solicite um orçamento.";
+
 export const metadata: Metadata = {
-  title: "Segurança Ativa | Engenharia e Medicina Ocupacional",
-  description:
-    "Há mais de 17 anos garantindo conformidade legal, segurança no trabalho e saúde ocupacional para empresas de Belo Horizonte e Região Metropolitana.",
+  metadataBase: new URL(SITE_URL),
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({
@@ -35,6 +58,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="font-body">
+        <StructuredData />
         <Header />
         <main>{children}</main>
         <Footer />

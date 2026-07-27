@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const CONTACT_EMAIL_TO = "comercial@ativamedicinaocupacional.com.br";
+const CONTACT_EMAIL_TO = "seguranca.ativaocupacional@gmail.com";
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;

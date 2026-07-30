@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -64,6 +65,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
       </body>
+      <GoogleAnalytics gaId="G-H0RBK9ZWYK" />
     </html>
   );
 }

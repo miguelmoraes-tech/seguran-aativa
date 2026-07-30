@@ -1,4 +1,4 @@
-export const SITE_URL = "https://ativamedicinaocupacional.com.br";
+export const SITE_URL = "https://www.ativamedicinaocupacional.com.br";
 export const SITE_NAME = "Segurança Ativa Engenharia e Medicina Ocupacional";
 
 export const BUSINESS = {

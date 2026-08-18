@@ -59,7 +59,7 @@ export default function RootLayout({
       className={`${heading.variable} ${body.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body className="font-body">
+      <head>
         <Script
           id="gtm-script"
           strategy="afterInteractive"
@@ -71,6 +71,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-WBVHTW5V');`,
           }}
         />
+      </head>
+      <body className="font-body">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-WBVHTW5V"
